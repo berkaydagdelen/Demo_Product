@@ -1,0 +1,42 @@
+﻿@using EntityLayer.Concrete
+@model List<Product>
+@{
+
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UILayout.cshtml";
+}
+
+<h1>ÜRÜN LİSTESİ</h1>
+<br />
+<a href="/Product/AddProduct/" class="btn btn-outline-primary">EKLE</a>
+<br />
+<br />
+<table class="table table-hover">
+
+    <tr>
+
+        <th>#</th>
+        <th>AD</th>
+        <th>FİYAT</th>
+        <th>STOK</th>
+        <th>SİL</th>
+        <th>GÜNCELLE</th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.NAME</td>
+            <td>@item.PRICE ₺</td>
+            <td>@item.STOCK</td>
+            <td><a href="/Product/DeleteProduct/@item.ID" class="btn btn-outline-danger">SİL</a></td>
+            <td><a href="/Product/UpdateProduct/@item.ID" class="btn btn-outline-success">GÜNCELLE</a></td>
+        </tr>
+
+    }
+
+
+
+</table>

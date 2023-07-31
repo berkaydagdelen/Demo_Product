@@ -1,0 +1,29 @@
+﻿@model EntityLayer.Concrete.Customer
+@{
+    ViewData["Title"] = "AddCustomer";
+    Layout = "~/Views/Shared/_UILayout.cshtml";
+}
+
+
+<h1>MÜŞTERİ EKLE</h1>
+<br />
+
+<form method="post" class="form-group">
+
+    <label>AD</label>
+    @Html.TextBoxFor(p=>p.NAME,new{@class="form-control"})
+    @Html.ValidationMessageFor(p=>p.NAME)
+    <br />
+    <br />
+    <label>ŞEHİR</label>
+    @Html.TextBoxFor(p=>p.CITY,new{@class="form-control"})
+    @Html.ValidationMessageFor(p=>p.CITY)
+    <br />
+    <br />
+    <label>MESLEK</label>
+    @Html.DropDownListFor(p=>p.JOBID,(List<SelectListItem>)ViewBag.JOB,new{@class="form-control"})
+    <br />
+    <br />
+    <button class="btn btn-outline-primary">EKLE</button>
+</form>
+
